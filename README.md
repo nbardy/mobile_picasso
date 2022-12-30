@@ -1,38 +1,17 @@
-<img src="media/banner.png">
+A model architecture effecient for learning new tasks on a realtime mobile architecure.
+
+* Originally a fork of Stylegan_xl, this repo adds a mobile architecture *
+
+The model architecture is composed of an encoder MobileVIT and a decoder Stylegan_xl.
+
+Using the Stylegan_xl training setup.
+
+# TODO:
+# - Condition the MobileVIT transformer on CLIP embeddings from a storybook.
+# - Condition the transformer on different modalities with tokens and clip embeddings
 
 
-#### [[Project]](https://sites.google.com/view/stylegan-xl/)    [[PDF]](https://arxiv.org/abs/2202.00273)    [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/hysts/StyleGAN-XL)
-
-
-This repository contains code for our SIGGRAPH'22 paper "StyleGAN-XL: Scaling StyleGAN to Large Diverse Datasets"
-
-by [Axel Sauer](https://axelsauer.com/), [Katja Schwarz](https://katjaschwarz.github.io/), and [Andreas Geiger](http://www.cvlibs.net/).
-
-
-If you find our code or paper useful, please cite
-```bibtex
-@InProceedings{Sauer2021ARXIV,
-  author    = {Axel Sauer and Katja Schwarz and Andreas Geiger},
-  title     = {StyleGAN-XL: Scaling StyleGAN to Large Diverse Datasets},
-  journal   = {arXiv.org},
-  volume    = {abs/2201.00273},
-  year      = {2022},
-  url       = {https://arxiv.org/abs/2201.00273},
-}
-```
-
-|Rank on Papers With Code|  &nbsp;
- :---  |  :---
- [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stylegan-xl-scaling-stylegan-to-large-diverse/image-generation-on-imagenet-32x32)](https://paperswithcode.com/sota/image-generation-on-imagenet-32x32?p=stylegan-xl-scaling-stylegan-to-large-diverse)|[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stylegan-xl-scaling-stylegan-to-large-diverse/image-generation-on-cifar-10)](https://paperswithcode.com/sota/image-generation-on-cifar-10?p=stylegan-xl-scaling-stylegan-to-large-diverse)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stylegan-xl-scaling-stylegan-to-large-diverse/image-generation-on-imagenet-64x64)](https://paperswithcode.com/sota/image-generation-on-imagenet-64x64?p=stylegan-xl-scaling-stylegan-to-large-diverse)|[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stylegan-xl-scaling-stylegan-to-large-diverse/image-generation-on-ffhq-256-x-256)](https://paperswithcode.com/sota/image-generation-on-ffhq-256-x-256?p=stylegan-xl-scaling-stylegan-to-large-diverse)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stylegan-xl-scaling-stylegan-to-large-diverse/image-generation-on-imagenet-128x128)](https://paperswithcode.com/sota/image-generation-on-imagenet-128x128?p=stylegan-xl-scaling-stylegan-to-large-diverse)|[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stylegan-xl-scaling-stylegan-to-large-diverse/image-generation-on-ffhq)](https://paperswithcode.com/sota/image-generation-on-ffhq?p=stylegan-xl-scaling-stylegan-to-large-diverse)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stylegan-xl-scaling-stylegan-to-large-diverse/image-generation-on-imagenet-256x256)](https://paperswithcode.com/sota/image-generation-on-imagenet-256x256?p=stylegan-xl-scaling-stylegan-to-large-diverse)|[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stylegan-xl-scaling-stylegan-to-large-diverse/image-generation-on-pokemon-256x256)](https://paperswithcode.com/sota/image-generation-on-pokemon-256x256?p=stylegan-xl-scaling-stylegan-to-large-diverse)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stylegan-xl-scaling-stylegan-to-large-diverse/image-generation-on-imagenet-512x512)](https://paperswithcode.com/sota/image-generation-on-imagenet-512x512?p=stylegan-xl-scaling-stylegan-to-large-diverse)|[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/stylegan-xl-scaling-stylegan-to-large-diverse/image-generation-on-pokemon-1024x1024)](https://paperswithcode.com/sota/image-generation-on-pokemon-1024x1024?p=stylegan-xl-scaling-stylegan-to-large-diverse)
-
-## Related Projects ##
-- Projected GANs Converge Faster (NeurIPS'21) &nbsp;-&nbsp; [Official Repo](https://github.com/autonomousvision/projected_gan) &nbsp;-&nbsp; [![Projected GAN Quickstart](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/gist/xl-sr/757757ff8709ad1721c6d9462efdc347/projected_gan.ipynb)
-- StyleGAN-XL + CLIP (Implemented by CasualGANPapers) &nbsp;-&nbsp;  [![StyleGAN-XL + CLIP](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/CasualGANPapers/unconditional-StyleGANXL-CLIP/blob/main/StyleganXL%2BCLIP.ipynb)
-- StyleGAN-XL + CLIP (Modified by Katherine Crowson to optimize in W+ space) &nbsp;-&nbsp; [![StyleGAN-XL + CLIP](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1ZEnJE-EUnh-aCXJbu0kVhi8_Qdi2BV-S)
+## instructions below are from stylgan_xl
 
 ## Requirements ##
 - 64-bit Python 3.8 and PyTorch 1.9.0 (or later). See https://pytorch.org for PyTorch install instructions.
@@ -45,12 +24,6 @@ If you find our code or paper useful, please cite
   - ```conda env create -f environment.yml```
   - ```conda activate sgxl```
 
-## Data Preparation ##
-For a quick start, you can download the few-shot datasets provided by the authors of [FastGAN](https://github.com/odegeasslbc/FastGAN-pytorch). You can download them [here](https://drive.google.com/file/d/1aAJCZbXNHyraJ6Mi13dSbe7pTyfPXha0/view). To prepare the dataset at the respective resolution, run
-```
-python dataset_tool.py --source=./data/pokemon --dest=./data/pokemon256.zip \
-  --resolution=256x256 --transform=center-crop
-```
 
 You need to follow our progressive growing scheme to get the best results. Therefore, you should prepare separate zips for each training resolution. You can get the datasets we used in our paper at their respective websites ([FFHQ](https://github.com/NVlabs/ffhq-dataset), [ImageNet](https://image-net.org/)).
 
